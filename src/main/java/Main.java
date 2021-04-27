@@ -1,3 +1,7 @@
+import com.alibaba.fastjson.JSON;
+import study.SingleTon;
+import study.SingleTonStaticInner;
+
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -5,6 +9,24 @@ import java.util.stream.Collectors;
 public class Main {
 
     public static void main(String[] args) {
+
+        SingleTon instance = SingleTon.getInstance();
+        System.out.println(instance);
+        String s = JSON.toJSONString(instance);
+        System.out.println(s);
+        SingleTon instance2 = JSON.parseObject(s, SingleTon.class);
+        System.out.println(instance2);
+        Object clone = instance.clone();
+        System.out.println(clone);
+
+        SingleTonStaticInner sInstance = SingleTonStaticInner.getInstance();
+        System.out.println(sInstance);
+        String ss = JSON.toJSONString(instance);
+        System.out.println(ss);
+        SingleTonStaticInner sinstance2 = JSON.parseObject(s, SingleTonStaticInner.class);
+        System.out.println(sinstance2);
+
+
         //Scanner in = new Scanner(System.in);
         //int a = in.nextInt();
         //System.out.println(a);
@@ -20,13 +42,13 @@ public class Main {
 //        Node head = addNode(head1,head2);
 
 
-        List<List<Integer>> lists = allPL(new int[]{1, 2, 3});
-        for (List<Integer> list : lists) {
-            for (Integer i : list) {
-                System.out.print(i + ",");
-            }
-            System.out.println();
-        }
+//        List<List<Integer>> lists = allPL(new int[]{1, 2, 3});
+//        for (List<Integer> list : lists) {
+//            for (Integer i : list) {
+//                System.out.print(i + ",");
+//            }
+//            System.out.println();
+//        }
 
     }
 
